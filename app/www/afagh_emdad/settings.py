@@ -37,6 +37,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "afagh_emdad.urls"
+CELERY_BROKER_URL = "redis://localhost:6379/0"
+CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
