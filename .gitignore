@@ -1,0 +1,99 @@
+# dependencies
+apps/www/node_modules
+apps/www/.pnp
+apps/www/.pnp.js
+apps/www/.yarn/install-state.gz
+
+# testing
+apps/www/coverage
+
+# next.js
+apps/www/.next/
+apps/www/out/
+
+# WebStorm IDE files
+.idea/
+
+# production
+apps/www/build
+
+# misc
+apps/www/.DS_Store
+apps/www/*.pem
+
+# debug
+apps/www/npm-debug.log*
+apps/www/yarn-debug.log*
+apps/www/yarn-error.log*
+
+# local env files
+apps/www/.env*.local
+
+# vercel
+apps/www/.vercel
+
+# typescript
+apps/www/*.tsbuildinfo
+apps/www/next-env.d.ts
+
+# python dependencies
+apps/web/.venv
+apps/web/poetry.lock
+
+# django
+apps/web/staticfiles
+apps/web/mediafiles
+
+# docker
+apps/docker/*.log
+apps/docker/*.pid
+
+# misc
+apps/web/.DS_Store
+apps/web/*.pem
+
+# logs
+*.log
+
+# environment variables
+.env
+.env.*
+
+# local pyenv
+.python-version
+
+# byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# virtual environment
+venv/
+.venv/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# pylint
+pylint-report.txt
+pylint-output.txt
+
+# coverage reports
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.cache
+nosetests.xml
+coverage/
+*.cover
+
+# Sphinx documentation
+docs/_build/
+target/
+build/
+dist/
