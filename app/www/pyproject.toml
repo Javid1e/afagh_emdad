@@ -34,6 +34,11 @@ exclude = [
     ".venv",
 ]
 
+[tool.poetry.scripts]
+
+format = "scripts:black_format"
+lint = "scripts:lint"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
