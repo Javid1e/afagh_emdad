@@ -13,6 +13,27 @@ celery = "^5.4.0"
 redis = "^5.0.4"
 
 
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.2"
+flake8 = "^7.0.0"
+isort = "^5.13.2"
+pylint = "^3.2.2"
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.isort]
+profile = "black"
+
+[tool.flake8]
+max-line-length = 88
+exclude = [
+    "migrations",
+    "__pycache__",
+    ".venv",
+]
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
