@@ -16,7 +16,9 @@ LANGUAGES = [
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]
-
+GRAPHENE = {
+    'SCHEMA': 'config.schema.schema'
+}
 ALLOWED_HOSTS = []
 
 # Application definition
@@ -28,6 +30,20 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'users',
+    'profiles',
+    'requests',
+    'payments',
+    'reviews',
+    'media',
+    'orders',
+    'complaints',
+    'otp',
+    'notifications',
+    'support_tickets',
+    'roles',
+    'live_location',
+    'graphene_django',
 ]
 
 MIDDLEWARE = [
