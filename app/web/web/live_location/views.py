@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import LiveLocation
+from .serializers import LiveLocationSerializer
 
-# Create your views here.
+
+class LiveLocationViewSet(viewsets.ModelViewSet):
+    queryset = LiveLocation.objects.all()
+    serializer_class = LiveLocationSerializer
