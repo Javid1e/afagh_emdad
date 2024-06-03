@@ -43,6 +43,13 @@ INSTALLED_APPS = [
     'support_tickets',
     'roles',
     'live_location',
+    'cars',
+    'services',
+    'achievements',
+    'certificates',
+    'blog_posts',
+    'faqs',
+    'transactions',
     'graphene_django',
 ]
 
