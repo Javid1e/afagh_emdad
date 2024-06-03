@@ -32,7 +32,7 @@ To install and run Afagh Emdad locally, follow these steps:
     ```bash
     cd apps/web
     poetry install
-    cd ../www
+    cd ../web
     pnpm install
     ```
 
@@ -143,19 +143,19 @@ poetry run python manage.py migrate
 Install Dependencies
 
 ```bash
-pnpm install --prefix apps/www
+pnpm install --prefix apps/web
 ```
 
 Run Dev Server
 
 ```bash
-pnpm dev --prefix apps/www
+pnpm dev --prefix apps/web
 ```
 
 Now for Bundling Your Frontend
 
 ```bash
-pnpm build --prefix apps/www
+pnpm build --prefix apps/web
 ```
 
 ## Technologies Used
