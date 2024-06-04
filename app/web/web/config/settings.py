@@ -21,6 +21,20 @@ LOCALE_PATHS = [
 GRAPHENE = {
     'SCHEMA': 'config.schema.schema'
 }
+
+# config/settings.py
+PUSH_NOTIFICATIONS_SETTINGS = {
+    "GCM_API_KEY": "your_gcm_api_key",
+    "APNS_CERTIFICATE": "path/to/your/certificate.pem",
+    "WNS_PACKAGE_SECURITY_ID": "your_package_security_id",
+    "WNS_SECRET_KEY": "your_secret_key",
+    "WP_PRIVATE_KEY": "path/to/your/private_key.pem",
+    "WP_PUBLIC_KEY": "path/to/your/public_key.pem",
+    "WP_CLAIMS": {
+        "sub": "mailto:your-email@example.com"
+    },
+}
+
 ALLOWED_HOSTS = []
 
 # Application definition
@@ -53,6 +67,7 @@ INSTALLED_APPS = [
     'faqs',
     'transactions',
     'graphene_django',
+    'push_notifications',
 ]
 
 MIDDLEWARE = [

@@ -32,6 +32,7 @@ toml = "^0.10.2"
 environ = "^1.0"
 zarinpal = "^1.0.0"
 requests = "^2.31.0"
+django-push-notifications = "^3.1.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.4.2"

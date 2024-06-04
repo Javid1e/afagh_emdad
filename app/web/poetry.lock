@@ -466,6 +466,24 @@ docs = ["furo (>=2021.8.17b43,<2021.9.dev0)", "sphinx (>=3.5.0)", "sphinx-notfou
 testing = ["coverage[toml] (>=5.0a4)", "pytest (>=4.6.11)"]
 
 [[package]]
+name = "django-push-notifications"
+version = "3.1.0"
+description = "Send push notifications to mobile devices through GCM, APNS or WNS and to WebPush (Chrome, Firefox and Opera) in Django"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "django-push-notifications-3.1.0.tar.gz", hash = "sha256:be14b4b8043a5a9d1d2f6b36bedcb954a6e30f51c917ba2a70e3d501db626217"},
+]
+
+[package.dependencies]
+Django = ">=2.2"
+
+[package.extras]
+apns = ["Django (>=2.2)", "apns2 (>=0.3.0)", "importlib-metadata"]
+fcm = ["firebase-admin (>=6.2)"]
+wp = ["pywebpush (>=1.3.0)"]
+
+[[package]]
 name = "djangorestframework"
 version = "3.15.1"
 description = "Web APIs for Django, made easy."
@@ -1439,4 +1457,4 @@ urllib3 = "2.1.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "749b29ec8158a04b442e88dac77689f75d0f1ce27c9158678e7101af5015ef6a"
+content-hash = "4c564fac4fa46d6eaca8c79fa15a1786eacdf1e6eef77132ab09f11da2b7c1e6"
