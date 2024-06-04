@@ -1,9 +1,10 @@
+# cars/apps.py
 from django.apps import AppConfig
 
 
 class CarsConfig(AppConfig):
-    default_auto_field = "django.db.models.BigAutoField"
-    name = "cars"
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'cars'
 
-# //Todo:{Complete This def ready(self):
-#         import app.signals }
+    def ready(self):
+        import cars.signals

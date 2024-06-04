@@ -6,4 +6,4 @@ class RequestsConfig(AppConfig):
     name = 'requests'
 
     def ready(self):
-        import requests.signals
+        import reqs.signals

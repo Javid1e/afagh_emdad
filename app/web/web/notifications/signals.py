@@ -16,3 +16,9 @@ def send_notification(sender, instance, created, **kwargs):
 
         devices = WebPushDevice.objects.filter(user=instance.user)
         devices.send_message(instance.message)
+
+
+@receiver(post_save, sender=Notification)
+def send_notification_on_create(sender, instance, created, **kwargs):
+    if created:
+        send_notification.delay(instance.id)

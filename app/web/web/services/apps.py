@@ -1,9 +1,10 @@
+# services/apps.py
 from django.apps import AppConfig
 
 
 class ServicesConfig(AppConfig):
-    default_auto_field = "django.db.models.BigAutoField"
-    name = "services"
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'services'
 
-# //Todo:{Complete This def ready(self):
-#         import app.signals }
+    def ready(self):
+        import services.signals

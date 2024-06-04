@@ -12,3 +12,9 @@ def notify_client_on_review_create(sender, instance, created, **kwargs):
             type='push',
             message=f'New review created: {instance.id}'
         )
+
+
+@receiver(post_delete, sender=Review)
+def handle_review_deletion(sender, instance, **kwargs):
+    # //Todo Logic to handle review deletion, if needed
+    pass

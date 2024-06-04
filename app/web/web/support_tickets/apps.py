@@ -1,3 +1,4 @@
+# support_tickets/apps.py
 from django.apps import AppConfig
 
 
