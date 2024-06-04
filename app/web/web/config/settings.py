@@ -4,7 +4,6 @@ from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 from datetime import timedelta
 
-
 env = environ.Env()
 environ.Env.read_env()
 
@@ -70,7 +69,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'users',
     'profiles',
-    'requests',
+    'reqs',
     'payments',
     'reviews',
     'media',
@@ -82,6 +81,7 @@ INSTALLED_APPS = [
     'roles',
     'live_location',
     'cars',
+    'cities',
     'services',
     'achievements',
     'certificates',
