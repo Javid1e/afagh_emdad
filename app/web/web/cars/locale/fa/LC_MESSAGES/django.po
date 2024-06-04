@@ -1,3 +1,22 @@
-# cars/locale/fa/LC_MESSAGES/django.po
-# //Todo:{Complete This django.po For cars}
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
 
+msgid "Car created successfully"
+msgstr "ماشین با موفقیت ایجاد شد"
+
+msgid "Car updated successfully"
+msgstr "ماشین با موفقیت به‌روزرسانی شد"
+
+msgid "Car deleted successfully"
+msgstr "ماشین با موفقیت حذف شد"
+
+msgid "Error creating car"
+msgstr "خطا در ایجاد ماشین"
+
+msgid "Error updating car"
+msgstr "خطا در به‌روزرسانی ماشین"
+
+msgid "Error deleting car"
+msgstr "خطا در حذف ماشین"

@@ -1,4 +1,28 @@
-# roles/locale/fa/LC_MESSAGES/django.po
-# //Todo:{Complete This django.po For roles}
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+
+msgid "Role created successfully"
+msgstr "نقش با موفقیت ایجاد شد"
+
+msgid "Role updated successfully"
+msgstr "نقش با موفقیت به‌روزرسانی شد"
+
+msgid "Role deleted successfully"
+msgstr "نقش با موفقیت حذف شد"
+
 msgid "Role assigned successfully"
 msgstr "نقش با موفقیت اختصاص داده شد"
+
+msgid "Error creating role"
+msgstr "خطا در ایجاد نقش"
+
+msgid "Error updating role"
+msgstr "خطا در به‌روزرسانی نقش"
+
+msgid "Error deleting role"
+msgstr "خطا در حذف نقش"
+
+msgid "Error assigning role"
+msgstr "خطا در اختصاص نقش"

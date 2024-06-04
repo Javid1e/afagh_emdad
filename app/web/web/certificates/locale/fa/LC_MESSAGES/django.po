@@ -1,3 +1,25 @@
 # certificates/locale/fa/LC_MESSAGES/django.po
 # //Todo:{Complete This django.po For certificates}
 
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+
+msgid "Certificate created successfully"
+msgstr "گواهی‌نامه با موفقیت ایجاد شد"
+
+msgid "Certificate updated successfully"
+msgstr "گواهی‌نامه با موفقیت به‌روزرسانی شد"
+
+msgid "Certificate deleted successfully"
+msgstr "گواهی‌نامه با موفقیت حذف شد"
+
+msgid "Error creating certificate"
+msgstr "خطا در ایجاد گواهی‌نامه"
+
+msgid "Error updating certificate"
+msgstr "خطا در به‌روزرسانی گواهی‌نامه"
+
+msgid "Error deleting certificate"
+msgstr "خطا در حذف گواهی‌نامه"

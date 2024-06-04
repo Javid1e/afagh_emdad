@@ -1,4 +1,28 @@
-# support_tickets/locale/fa/LC_MESSAGES/django.po
-# //Todo:{Complete This django.po For support_tickets}
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+
 msgid "Support ticket created successfully"
 msgstr "درخواست پشتیبانی با موفقیت ایجاد شد"
+
+msgid "Support ticket updated successfully"
+msgstr "درخواست پشتیبانی با موفقیت به‌روزرسانی شد"
+
+msgid "Support ticket deleted successfully"
+msgstr "درخواست پشتیبانی با موفقیت حذف شد"
+
+msgid "Support ticket resolved"
+msgstr "درخواست پشتیبانی حل شد"
+
+msgid "Error creating support ticket"
+msgstr "خطا در ایجاد درخواست پشتیبانی"
+
+msgid "Error updating support ticket"
+msgstr "خطا در به‌روزرسانی درخواست پشتیبانی"
+
+msgid "Error deleting support ticket"
+msgstr "خطا در حذف درخواست پشتیبانی"
+
+msgid "Error resolving support ticket"
+msgstr "خطا در حل درخواست پشتیبانی"

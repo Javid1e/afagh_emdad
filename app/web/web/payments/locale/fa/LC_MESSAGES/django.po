@@ -1,7 +1,31 @@
-# payments/locale/fa/LC_MESSAGES/django.po
-# //Todo:{Complete This django.po For payments}
-msgid "Payment processed successfully"
-msgstr "پرداخت با موفقیت انجام شد"
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+
+msgid "Payment created successfully"
+msgstr "پرداخت با موفقیت ایجاد شد"
+
+msgid "Payment updated successfully"
+msgstr "پرداخت با موفقیت به‌روزرسانی شد"
+
+msgid "Payment deleted successfully"
+msgstr "پرداخت با موفقیت حذف شد"
+
+msgid "Payment request failed"
+msgstr "درخواست پرداخت ناموفق بود"
+
+msgid "Payment successful"
+msgstr "پرداخت موفقیت‌آمیز بود"
 
 msgid "Payment verification failed"
-msgstr "تایید پرداخت ناموفق بود"
+msgstr "تأیید پرداخت ناموفق بود"
+
+msgid "Error creating payment"
+msgstr "خطا در ایجاد پرداخت"
+
+msgid "Error updating payment"
+msgstr "خطا در به‌روزرسانی پرداخت"
+
+msgid "Error deleting payment"
+msgstr "خطا در حذف پرداخت"

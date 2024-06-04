@@ -1,4 +1,22 @@
-# media/locale/fa/LC_MESSAGES/django.po
-# //Todo:{Complete This django.po For media}
-msgid "Media uploaded successfully"
-msgstr "مدیا با موفقیت آپلود شد"
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+
+msgid "Media created successfully"
+msgstr "مدیا با موفقیت ایجاد شد"
+
+msgid "Media updated successfully"
+msgstr "مدیا با موفقیت به‌روزرسانی شد"
+
+msgid "Media deleted successfully"
+msgstr "مدیا با موفقیت حذف شد"
+
+msgid "Error creating media"
+msgstr "خطا در ایجاد مدیا"
+
+msgid "Error updating media"
+msgstr "خطا در به‌روزرسانی مدیا"
+
+msgid "Error deleting media"
+msgstr "خطا در حذف مدیا"

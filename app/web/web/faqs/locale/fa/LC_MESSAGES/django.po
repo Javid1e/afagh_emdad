@@ -1,3 +1,22 @@
-# faqs/locale/fa/LC_MESSAGES/django.po
-# //Todo:{Complete This django.po For faqs}
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
 
+msgid "FAQ created successfully"
+msgstr "سوال متداول با موفقیت ایجاد شد"
+
+msgid "FAQ updated successfully"
+msgstr "سوال متداول با موفقیت به‌روزرسانی شد"
+
+msgid "FAQ deleted successfully"
+msgstr "سوال متداول با موفقیت حذف شد"
+
+msgid "Error creating FAQ"
+msgstr "خطا در ایجاد سوال متداول"
+
+msgid "Error updating FAQ"
+msgstr "خطا در به‌روزرسانی سوال متداول"
+
+msgid "Error deleting FAQ"
+msgstr "خطا در حذف سوال متداول"

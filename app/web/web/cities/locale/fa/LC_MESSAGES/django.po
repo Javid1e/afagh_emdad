@@ -1,3 +1,22 @@
-# cities/locale/fa/LC_MESSAGES/django.po
-# //Todo:{Complete This django.po For cities}
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
 
+msgid "City created successfully"
+msgstr "شهر با موفقیت ایجاد شد"
+
+msgid "City updated successfully"
+msgstr "شهر با موفقیت به‌روزرسانی شد"
+
+msgid "City deleted successfully"
+msgstr "شهر با موفقیت حذف شد"
+
+msgid "Error creating city"
+msgstr "خطا در ایجاد شهر"
+
+msgid "Error updating city"
+msgstr "خطا در به‌روزرسانی شهر"
+
+msgid "Error deleting city"
+msgstr "خطا در حذف شهر"

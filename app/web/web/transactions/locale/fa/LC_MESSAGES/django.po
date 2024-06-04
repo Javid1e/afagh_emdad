@@ -1,3 +1,22 @@
-# cars/locale/fa/LC_MESSAGES/django.po
-# //Todo:{Complete This django.po For cars}
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
 
+msgid "Transaction created successfully"
+msgstr "تراکنش با موفقیت ایجاد شد"
+
+msgid "Transaction updated successfully"
+msgstr "تراکنش با موفقیت به‌روزرسانی شد"
+
+msgid "Transaction deleted successfully"
+msgstr "تراکنش با موفقیت حذف شد"
+
+msgid "Error creating transaction"
+msgstr "خطا در ایجاد تراکنش"
+
+msgid "Error updating transaction"
+msgstr "خطا در به‌روزرسانی تراکنش"
+
+msgid "Error deleting transaction"
+msgstr "خطا در حذف تراکنش"

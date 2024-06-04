@@ -1,4 +1,37 @@
-# notifications/locale/fa/LC_MESSAGES/django.po
-# //Todo:{Complete This django.po For notifications}
-msgid "Notification sent successfully"
-msgstr "اعلان با موفقیت ارسال شد"
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+
+msgid "Notification created successfully"
+msgstr "اعلان با موفقیت ایجاد شد"
+
+msgid "Notification updated successfully"
+msgstr "اعلان با موفقیت به‌روزرسانی شد"
+
+msgid "Notification deleted successfully"
+msgstr "اعلان با موفقیت حذف شد"
+
+msgid "New Notification"
+msgstr "اعلان جدید"
+
+msgid "New request nearby"
+msgstr "درخواست جدید در نزدیکی"
+
+msgid "Profile updated"
+msgstr "پروفایل به‌روزرسانی شد"
+
+msgid "Error creating notification"
+msgstr "خطا در ایجاد اعلان"
+
+msgid "Error updating notification"
+msgstr "خطا در به‌روزرسانی اعلان"
+
+msgid "Error deleting notification"
+msgstr "خطا در حذف اعلان"
+
+msgid "Error sending SMS"
+msgstr "خطا در ارسال پیامک"
+
+msgid "Error sending email"
+msgstr "خطا در ارسال ایمیل"
