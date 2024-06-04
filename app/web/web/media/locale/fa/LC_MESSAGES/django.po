@@ -1,0 +1,4 @@
+# media/locale/fa/LC_MESSAGES/django.po
+# //Todo:{Complete This django.po For media}
+msgid "Media uploaded successfully"
+msgstr "مدیا با موفقیت آپلود شد"

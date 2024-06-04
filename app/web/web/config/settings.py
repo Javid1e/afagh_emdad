@@ -1,6 +1,7 @@
 import environ
 import os
 from pathlib import Path
+from django.utils.translation import gettext_lazy as _
 
 env = environ.Env()
 environ.Env.read_env()
@@ -10,9 +11,10 @@ DEBUG = env.bool('DEBUG', default=False)
 SECRET_KEY = env('SECRET_KEY')
 
 LANGUAGES = [
-    ('fa', 'Persian'),
-    ('en', 'English'),
+    ('fa', _('Persian')),
+    ('en', _('English')),
 ]
+
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]

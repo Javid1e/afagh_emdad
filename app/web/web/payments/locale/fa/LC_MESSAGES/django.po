@@ -1,0 +1,7 @@
+# payments/locale/fa/LC_MESSAGES/django.po
+# //Todo:{Complete This django.po For payments}
+msgid "Payment processed successfully"
+msgstr "پرداخت با موفقیت انجام شد"
+
+msgid "Payment verification failed"
+msgstr "تایید پرداخت ناموفق بود"

@@ -1,0 +1,4 @@
+# reqs/locale/fa/LC_MESSAGES/django.po
+# //Todo:{Complete This django.po For reqs}
+msgid "Request created successfully"
+msgstr "درخواست با موفقیت ایجاد شد"

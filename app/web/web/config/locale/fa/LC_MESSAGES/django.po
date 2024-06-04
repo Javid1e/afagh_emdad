@@ -1,0 +1,2 @@
+# web/config/locale/fa/LC_MESSAGES/django.po
+# //Todo:{Complete This django.po For profiles}

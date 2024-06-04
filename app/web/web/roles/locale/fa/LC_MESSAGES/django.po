@@ -1,0 +1,4 @@
+# roles/locale/fa/LC_MESSAGES/django.po
+# //Todo:{Complete This django.po For roles}
+msgid "Role assigned successfully"
+msgstr "نقش با موفقیت اختصاص داده شد"

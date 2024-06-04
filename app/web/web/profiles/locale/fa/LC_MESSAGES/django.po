@@ -1,0 +1,4 @@
+# profiles/locale/fa/LC_MESSAGES/django.po
+# //Todo:{Complete This django.po For profiles}
+msgid "Profile updated successfully"
+msgstr "پروفایل با موفقیت به‌روزرسانی شد"

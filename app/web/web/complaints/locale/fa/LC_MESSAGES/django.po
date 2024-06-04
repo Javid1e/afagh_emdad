@@ -1,0 +1,4 @@
+# complaints/locale/fa/LC_MESSAGES/django.po
+# //Todo:{Complete This django.po For complaints}
+msgid "Complaint registered successfully"
+msgstr "شکایت با موفقیت ثبت شد"

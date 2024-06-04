@@ -1,0 +1,7 @@
+# otp/locale/fa/LC_MESSAGES/django.po
+# //Todo:{Complete This django.po For otp}
+msgid "OTP sent successfully"
+msgstr "کد تایید با موفقیت ارسال شد"
+
+msgid "OTP verification failed"
+msgstr "تایید کد تایید ناموفق بود"

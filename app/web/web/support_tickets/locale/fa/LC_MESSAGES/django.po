@@ -1,0 +1,4 @@
+# support_tickets/locale/fa/LC_MESSAGES/django.po
+# //Todo:{Complete This django.po For support_tickets}
+msgid "Support ticket created successfully"
+msgstr "درخواست پشتیبانی با موفقیت ایجاد شد"

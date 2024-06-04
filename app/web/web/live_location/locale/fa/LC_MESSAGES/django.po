@@ -1,0 +1,5 @@
+# live_location/locale/fa/LC_MESSAGES/django.po
+# //Todo:{Complete This django.po For live_location}
+msgid "Live location updated successfully"
+msgstr "مکان زنده با موفقیت به‌روزرسانی شد"
+

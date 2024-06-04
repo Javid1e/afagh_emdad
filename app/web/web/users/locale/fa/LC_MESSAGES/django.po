@@ -1,0 +1,7 @@
+# users/locale/fa/LC_MESSAGES/django.po
+# //Todo:{Complete This django.po For users}
+msgid "User created successfully"
+msgstr "کاربر با موفقیت ایجاد شد"
+
+msgid "Invalid username or password"
+msgstr "نام کاربری یا رمز عبور نامعتبر است"

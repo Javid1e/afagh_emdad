@@ -1,0 +1,3 @@
+# blog_posts/locale/fa/LC_MESSAGES/django.po
+# //Todo:{Complete This django.po For blog_posts}
+

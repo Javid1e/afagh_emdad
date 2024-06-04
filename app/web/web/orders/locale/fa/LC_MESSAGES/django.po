@@ -1,0 +1,4 @@
+# orders/locale/fa/LC_MESSAGES/django.po
+# //Todo:{Complete This django.po For orders}
+msgid "Order placed successfully"
+msgstr "سفارش با موفقیت ثبت شد"

@@ -1,0 +1,4 @@
+# reviews/locale/fa/LC_MESSAGES/django.po
+# //Todo:{Complete This django.po For reviews}
+msgid "Review submitted successfully"
+msgstr "نقد و بررسی با موفقیت ثبت شد"

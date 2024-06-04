@@ -1,0 +1,4 @@
+# notifications/locale/fa/LC_MESSAGES/django.po
+# //Todo:{Complete This django.po For notifications}
+msgid "Notification sent successfully"
+msgstr "اعلان با موفقیت ارسال شد"
