@@ -2,22 +2,44 @@ import environ
 import os
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
+from datetime import timedelta
+
 
 env = environ.Env()
 environ.Env.read_env()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 DEBUG = env.bool('DEBUG', default=False)
 SECRET_KEY = env('SECRET_KEY')
+
+# Celery Configuration Options
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Tehran'
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/1',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
 
 LANGUAGES = [
     ('fa', _('Persian')),
     ('en', _('English')),
 ]
-
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]
+
 GRAPHENE = {
     'SCHEMA': 'config.schema.schema'
 }
