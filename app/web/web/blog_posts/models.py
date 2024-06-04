@@ -1,11 +1,12 @@
 # blog_posts/models.py
 from django.db import models
 from ..users.models import User
+from .validations import validate_content
 
 
 class BlogPost(models.Model):
-    title = models.CharField(maxlength=100)
-    content = models.TextField()
+    title = models.CharField(max_length=100)
+    content = models.TextField(validators=[validate_content])
     author = models.ForeignKey(User, related_name='blog_posts', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
