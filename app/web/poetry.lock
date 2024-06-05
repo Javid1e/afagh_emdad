@@ -466,6 +466,21 @@ docs = ["furo (>=2021.8.17b43,<2021.9.dev0)", "sphinx (>=3.5.0)", "sphinx-notfou
 testing = ["coverage[toml] (>=5.0a4)", "pytest (>=4.6.11)"]
 
 [[package]]
+name = "django-graphql-extensions"
+version = "0.1.0"
+description = "A collection of custom extensions for Django GraphQL"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-graphql-extensions-0.1.0.tar.gz", hash = "sha256:eb997da2b56b934b78235d40935e6762828243e92e417a12e144e445a220bb04"},
+    {file = "django_graphql_extensions-0.1.0-py2.py3-none-any.whl", hash = "sha256:7900d2f3b025fa3f8673f0373e4c97af0fc56681763407c13ed086a00bc735dc"},
+]
+
+[package.dependencies]
+Django = ">=2.0"
+graphene-django = ">=3.0.0b1"
+
+[[package]]
 name = "django-push-notifications"
 version = "3.1.0"
 description = "Send push notifications to mobile devices through GCM, APNS or WNS and to WebPush (Chrome, Firefox and Opera) in Django"
@@ -1457,4 +1472,4 @@ urllib3 = "2.1.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "4c564fac4fa46d6eaca8c79fa15a1786eacdf1e6eef77132ab09f11da2b7c1e6"
+content-hash = "4ca4750a1d085c3e040546570d2370f75102350696d38859d3fa5a29752b8cfb"

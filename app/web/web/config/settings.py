@@ -10,6 +10,9 @@ environ.Env.read_env('.env')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# تنظیم GDAL_LIBRARY_PATH
+GDAL_LIBRARY_PATH = env('GDAL_LIBRARY_PATH', default='/usr/lib/libgdal.so')  # مسیر پیش‌فرض برای Manjaro
+
 DEBUG = env.bool('DEBUG', default=False)
 SECRET_KEY = env('SECRET_KEY')
 
