@@ -1,0 +1,202 @@
+# Users
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  phone_number: String!
+}
+
+# Profiles
+type Profile {
+  id: ID!
+  user: User!
+  personal_information: JSON
+  car_information: JSON
+}
+
+# Requests
+type Request {
+  id: ID!
+  client: User!
+  rescuer: User
+  status: String!
+  location: Point
+  description: String!
+}
+
+# Payments
+type Payment {
+  id: ID!
+  request: Request!
+  amount: Float!
+  status: String!
+}
+
+# Reviews
+type Review {
+  id: ID!
+  client: User!
+  rating: Int!
+  comments: String!
+}
+
+# Media
+type Media {
+  id: ID!
+  associated_model: String!
+  object_id: ID!
+  file_url: String!
+  file_type: String!
+}
+
+# Orders
+type Order {
+  id: ID!
+  user: User!
+  service_type: String!
+  status: String!
+  request_time: String!
+  completion_time: String
+  location: String!
+}
+
+# Complaints
+type Complaint {
+  id: ID!
+  user: User!
+  order: Order!
+  description: String!
+  status: String!
+  resolution: String
+}
+
+# OTP
+type OTP {
+  id: ID!
+  user: User!
+  code: String!
+  created_at: String!
+  expires_at: String!
+}
+
+# Notifications
+type Notification {
+  id: ID!
+  user: User!
+  type: String!
+  message: String!
+  read_status: Boolean!
+}
+
+# Support Tickets
+type SupportTicket {
+  id: ID!
+  user: User!
+  subject: String!
+  description: String!
+  status: String!
+}
+
+# Roles
+type Role {
+  id: ID!
+  name: String!
+  permissions: JSON!
+}
+
+# Live Location
+type LiveLocation {
+  id: ID!
+  user: User!
+  request: Request!
+  location: Point!
+  timestamp: String!
+}
+
+# Cars
+type Car {
+  id: ID!
+  user: User!
+  make: String!
+  model: String!
+  year: Int!
+  license_plate: String!
+}
+
+# Cities
+type City {
+  id: ID!
+  name: String!
+  description: String
+}
+
+# Services
+type Service {
+  id: ID!
+  name: String!
+  description: String!
+  price: Float!
+}
+
+# Achievements
+type Achievement {
+  id: ID!
+  title: String!
+  description: String!
+  date: String!
+}
+
+# Certificates
+type Certificate {
+  id: ID!
+  user: User!
+  name: String!
+  issued_by: String!
+  issue_date: String!
+  expiry_date: String
+  description: String
+}
+
+# Blog Posts
+type BlogPost {
+  id: ID!
+  title: String!
+  content: String!
+  author: User!
+}
+
+# Comments
+type Comment {
+  id: ID!
+  blog_post: BlogPost!
+  author: User!
+  content: String!
+}
+
+# Likes
+type Like {
+  id: ID!
+  blog_post: BlogPost!
+  user: User!
+}
+
+# FAQs
+type FAQ {
+  id: ID!
+  question: String!
+  answer: String!
+}
+
+# Transactions
+type Transaction {
+  id: ID!
+  user: User!
+  amount: Float!
+  transaction_type: String!
+}
+
+# Point Type
+scalar Point
+
+# JSON Type
+scalar JSON

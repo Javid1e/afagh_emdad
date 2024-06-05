@@ -1,0 +1,49 @@
+# Queries
+type Query {
+  allUsers: [User]
+  user(id: ID!): User
+  allProfiles: [Profile]
+  profile(id: ID!): Profile
+  allRequests: [Request]
+  request(id: ID!): Request
+  allPayments: [Payment]
+  payment(id: ID!): Payment
+  allReviews: [Review]
+  review(id: ID!): Review
+  allMedia: [Media]
+  media(id: ID!): Media
+  allOrders: [Order]
+  order(id: ID!): Order
+  allComplaints: [Complaint]
+  complaint(id: ID!): Complaint
+  allOTPs: [OTP]
+  otp(id: ID!): OTP
+  allNotifications: [Notification]
+  notification(id: ID!): Notification
+  allSupportTickets: [SupportTicket]
+  supportTicket(id: ID!): SupportTicket
+  allRoles: [Role]
+  role(id: ID!): Role
+  allLiveLocations: [LiveLocation]
+  liveLocation(id: ID!): LiveLocation
+  allCars: [Car]
+  car(id: ID!): Car
+  allCities: [City]
+  city(id: ID!): City
+  allServices: [Service]
+  service(id: ID!): Service
+  allAchievements: [Achievement]
+  achievement(id: ID!): Achievement
+  allCertificates: [Certificate]
+  certificate(id: ID!): Certificate
+  allBlogPosts: [BlogPost]
+  blogPost(id: ID!): BlogPost
+  allComments: [Comment]
+  comment(id: ID!): Comment
+  allLikes: [Like]
+  like(id: ID!): Like
+  allFAQs: [FAQ]
+  faq(id: ID!): FAQ
+  allTransactions: [Transaction]
+  transaction(id: ID!): Transaction
+}

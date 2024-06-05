@@ -1,0 +1,94 @@
+# Mutations
+type Mutation {
+  createUser(username: String!, email: String!, phone_number: String!, password: String!): User
+  updateUser(id: ID!, username: String, email: String, phone_number: String): User
+  deleteUser(id: ID!): User
+
+  createProfile(user: ID!, personal_information: JSON, car_information: JSON): Profile
+  updateProfile(id: ID!, personal_information: JSON, car_information: JSON): Profile
+  deleteProfile(id: ID!): Profile
+
+  createRequest(client: ID!, status: String!, location: Point!, description: String!): Request
+  updateRequest(id: ID!, client: ID, status: String, location: Point, description: String): Request
+  deleteRequest(id: ID!): Request
+
+  createPayment(request: ID!, amount: Float!, status: String!): Payment
+  updatePayment(id: ID!, request: ID, amount: Float, status: String): Payment
+  deletePayment(id: ID!): Payment
+
+  createReview(client: ID!, rating: Int!, comments: String!): Review
+  updateReview(id: ID!, client: ID, rating: Int, comments: String): Review
+  deleteReview(id: ID!): Review
+
+  createMedia(associated_model: String!, object_id: ID!, file_url: String!, file_type: String!): Media
+  updateMedia(id: ID!, associated_model: String, object_id: ID, file_url: String, file_type: String): Media
+  deleteMedia(id: ID!): Media
+
+  createOrder(user: ID!, service_type: String!, status: String!, request_time: String!, location: String!): Order
+  updateOrder(id: ID!, user: ID, service_type: String, status: String, request_time: String, location: String): Order
+  deleteOrder(id: ID!): Order
+
+  createComplaint(user: ID!, order: ID!, description: String!, status: String!): Complaint
+  updateComplaint(id: ID!, user: ID, order: ID, description: String, status: String): Complaint
+  deleteComplaint(id: ID!): Complaint
+
+  createOTP(user: ID!, code: String!, expires_at: String!): OTP
+  updateOTP(id: ID!, user: ID, code: String, expires_at: String): OTP
+  deleteOTP(id: ID!): OTP
+
+  createNotification(user: ID!, type: String!, message: String!, read_status: Boolean!): Notification
+  updateNotification(id: ID!, user: ID, type: String, message: String, read_status: Boolean): Notification
+  deleteNotification(id: ID!): Notification
+
+  createSupportTicket(user: ID!, subject: String!, description: String!, status: String!): SupportTicket
+  updateSupportTicket(id: ID!, user: ID, subject: String, description: String, status: String): SupportTicket
+  deleteSupportTicket(id: ID!): SupportTicket
+
+  createRole(name: String!, permissions: JSON!): Role
+  updateRole(id: ID!, name: String, permissions: JSON): Role
+  deleteRole(id: ID!): Role
+
+  createLiveLocation(user: ID!, request: ID!, location: Point!): LiveLocation
+  updateLiveLocation(id: ID!, user: ID, request: ID, location: Point): LiveLocation
+  deleteLiveLocation(id: ID!): LiveLocation
+
+  createCar(user: ID!, make: String!, model: String!, year: Int!, license_plate: String!): Car
+  updateCar(id: ID!, user: ID, make: String, model: String, year: Int, license_plate: String): Car
+  deleteCar(id: ID!): Car
+
+  createCity(name: String!, description: String): City
+  updateCity(id: ID!, name: String, description: String): City
+  deleteCity(id: ID!): City
+
+  createService(name: String!, description: String!, price: Float!): Service
+  updateService(id: ID!, name: String, description: String, price: Float): Service
+  deleteService(id: ID!): Service
+
+  createAchievement(title: String!, description: String!, date: String!): Achievement
+  updateAchievement(id: ID!, title: String, description: String, date: String): Achievement
+  deleteAchievement(id: ID!): Achievement
+
+  createCertificate(user: ID!, name: String!, issued_by: String!, issue_date: String!, expiry_date: String, description: String): Certificate
+  updateCertificate(id: ID!, user: ID, name: String, issued_by: String, issue_date: String, expiry_date: String, description: String): Certificate
+  deleteCertificate(id: ID!): Certificate
+
+  createBlogPost(title: String!, content: String!, author: ID!): BlogPost
+  updateBlogPost(id: ID!, title: String, content: String, author: ID): BlogPost
+  deleteBlogPost(id: ID!): BlogPost
+
+  createComment(blog_post: ID!, author: ID!, content: String!): Comment
+  updateComment(id: ID!, blog_post: ID, author: ID, content: String): Comment
+  deleteComment(id: ID!): Comment
+
+  createLike(blog_post: ID!, user: ID!): Like
+  updateLike(id: ID!, blog_post: ID, user: ID): Like
+  deleteLike(id: ID!): Like
+
+  createFAQ(question: String!, answer: String!): FAQ
+  updateFAQ(id: ID!, question: String, answer: String): FAQ
+  deleteFAQ(id: ID!): FAQ
+
+  createTransaction(user: ID!, amount: Float!, transaction_type: String!): Transaction
+  updateTransaction(id: ID!, user: ID, amount: Float, transaction_type: String): Transaction
+  deleteTransaction(id: ID!): Transaction
+}
