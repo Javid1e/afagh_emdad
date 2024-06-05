@@ -2,7 +2,7 @@
 from django.contrib.gis.db import models as geomodels
 from django.db import models
 from users.models import User
-from requests.models import Request
+from reqs.models import Request
 from .validations import validate_latitude, validate_longitude, validate_location
 
 

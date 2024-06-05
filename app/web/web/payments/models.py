@@ -1,6 +1,6 @@
 # payments/models.py
 from django.db import models
-from requests.models import Request
+from reqs.models import Request
 from .validations import validate_amount, validate_status
 
 

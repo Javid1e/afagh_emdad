@@ -1,7 +1,7 @@
 # reviews/tasks.py
 from celery import shared_task
 from .models import Review
-from ..notifications.models import Notification
+from notifications.models import Notification
 from django.utils.translation import gettext as _
 
 

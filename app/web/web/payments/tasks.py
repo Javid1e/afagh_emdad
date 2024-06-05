@@ -1,7 +1,7 @@
 # payments/tasks.py
 from celery import shared_task
 from .models import Payment
-from ..notifications.models import Notification
+from notifications.models import Notification
 from django.utils.translation import gettext as _
 
 

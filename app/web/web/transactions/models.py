@@ -1,6 +1,6 @@
 # transactions/models.py
 from django.db import models
-from ..users.models import User
+from users.models import User
 from .validations import validate_transaction_type
 
 

@@ -1,7 +1,7 @@
 # transactions/tasks.py
 from celery import shared_task
 from .models import Transaction
-from ..users.models import User
+from users.models import User
 
 
 @shared_task

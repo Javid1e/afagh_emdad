@@ -2,7 +2,7 @@
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from .models import User
-from ..profiles.models import Profile
+from profiles.models import Profile
 from .tasks import send_welcome_email
 
 

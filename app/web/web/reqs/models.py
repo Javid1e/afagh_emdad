@@ -1,4 +1,4 @@
-# requests/models.py
+from django.db import models
 from django.contrib.gis.db import models as geomodels
 from users.models import User
 from .validations import validate_location, validate_status

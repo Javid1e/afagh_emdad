@@ -1,7 +1,7 @@
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from .models import Payment
-from ..notifications.models import Notification
+from notifications.models import Notification
 from .tasks import process_payment
 
 
