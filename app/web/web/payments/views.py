@@ -6,7 +6,7 @@ from rest_framework import status
 from django.utils.translation import gettext as _
 from .models import Payment
 from .serializers import PaymentSerializer
-from zarinpal import Zarinpal
+from zarinpal import ZarinPal
 from django.conf import settings
 
 
@@ -43,7 +43,7 @@ class PaymentViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=['post'], url_path='start')
     def start_payment(self, request, pk=None):
         payment = self.get_object()
-        zarinpal = Zarinpal(settings.ZARINPAL_MERCHANT_ID)
+        zarinpal = ZarinPal(settings.ZARINPAL_MERCHANT_ID)
         result = zarinpal.payment_request(
             amount=payment.amount,
             description=f'Payment for request ID: {payment.request.id}',
@@ -70,7 +70,7 @@ class PaymentViewSet(viewsets.ModelViewSet):
             return Response({'error': _("Payment not found")}, status=status.HTTP_404_NOT_FOUND)
 
         if status == 'OK':
-            zarinpal = Zarinpal(settings.ZARINPAL_MERCHANT_ID)
+            zarinpal = ZarinPal(settings.ZARINPAL_MERCHANT_ID)
             result = zarinpal.payment_verification(
                 amount=payment.amount,
                 authority=authority

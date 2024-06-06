@@ -7,3 +7,4 @@ class RequestsConfig(AppConfig):
 
     def ready(self):
         import reqs.signals
+        import reqs.converters

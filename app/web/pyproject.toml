@@ -34,6 +34,9 @@ zarinpal = "^1.0.0"
 requests = "^2.31.0"
 django-push-notifications = "^3.1.0"
 django-graphql-extensions = "^0.1.0"
+django-redis = "^5.4.0"
+pillow = "^10.3.0"
+graphene-gis = "^0.0.8"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.4.2"

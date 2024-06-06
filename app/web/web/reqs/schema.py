@@ -1,9 +1,17 @@
 # reqs/schema.py
 import graphene
-from graphene_django import DjangoObjectType
+from graphene_django.types import DjangoObjectType
 from .models import Request
 from .mutations import CreateRequest, UpdateRequest, DeleteRequest
-from .types import RequestType
+from .types import PointType
+from .converters import convert_point_field_to_string
+
+
+class RequestType(DjangoObjectType):
+    location = PointType()
+
+    class Meta:
+        model = Request
 
 
 class Query(graphene.ObjectType):

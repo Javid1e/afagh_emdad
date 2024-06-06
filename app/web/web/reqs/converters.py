@@ -26,3 +26,5 @@ class PointType(Scalar):
 @convert_django_field.register(PointField)
 def convert_point_field_to_string(field, registry=None):
     return PointType(description=field.help_text, required=not field.null)
+
+

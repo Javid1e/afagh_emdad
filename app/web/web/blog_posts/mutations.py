@@ -1,57 +1,45 @@
 # blog_posts/mutations.py
 import graphene
-from .models import BlogPost
-from .types import BlogPostType
-from django.core.exceptions import ValidationError
+from graphene_django import DjangoObjectType
+from .models import Comment
+from .types import CommentType
 
 
-class CreateBlogPost(graphene.Mutation):
-    blog_post = graphene.Field(BlogPostType)
+class CreateComment(graphene.Mutation):
+    comment = graphene.Field(CommentType)
 
     class Arguments:
-        author_id = graphene.Int(required=True)
-        title = graphene.String(required=True)
+        post_id = graphene.Int(required=True)
         content = graphene.String(required=True)
 
-    def mutate(self, info, author_id, title, content):
-        blog_post = BlogPost(author_id=author_id, title=title, content=content)
-        try:
-            blog_post.full_clean()
-            blog_post.save()
-        except ValidationError as e:
-            raise Exception(e.message_dict)
-        return CreateBlogPost(blog_post=blog_post)
+    def mutate(self, info, post_id, content):
+        comment = Comment(post_id=post_id, content=content)
+        comment.save()
+        return CreateComment(comment=comment)
 
 
-class UpdateBlogPost(graphene.Mutation):
-    blog_post = graphene.Field(BlogPostType)
+class UpdateComment(graphene.Mutation):
+    comment = graphene.Field(CommentType)
 
     class Arguments:
         id = graphene.Int(required=True)
-        title = graphene.String()
         content = graphene.String()
 
-    def mutate(self, info, id, title=None, content=None):
-        blog_post = BlogPost.objects.get(pk=id)
-        if title:
-            blog_post.title = title
+    def mutate(self, info, id, content):
+        comment = Comment.objects.get(pk=id)
         if content:
-            blog_post.content = content
-        try:
-            blog_post.full_clean()
-            blog_post.save()
-        except ValidationError as e:
-            raise Exception(e.message_dict)
-        return UpdateBlogPost(blog_post=blog_post)
+            comment.content = content
+        comment.save()
+        return UpdateComment(comment=comment)
 
 
-class DeleteBlogPost(graphene.Mutation):
-    blog_post = graphene.Field(BlogPostType)
+class DeleteComment(graphene.Mutation):
+    comment = graphene.Field(CommentType)
 
     class Arguments:
         id = graphene.Int(required=True)
 
     def mutate(self, info, id):
-        blog_post = BlogPost.objects.get(pk=id)
-        blog_post.delete()
-        return DeleteBlogPost(blog_post=blog_post)
+        comment = Comment.objects.get(pk=id)
+        comment.delete()
+        return DeleteComment(comment=comment)

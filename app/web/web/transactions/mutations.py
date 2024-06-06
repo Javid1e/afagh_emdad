@@ -1,56 +1,56 @@
-# transactions/mutations.py
 import graphene
-from .models import FAQ
-from .types import FAQType
+from .models import Transaction
+from .types import TransactionType
 from django.core.exceptions import ValidationError
 
 
-class CreateFAQ(graphene.Mutation):
-    faq = graphene.Field(FAQType)
+class CreateTransaction(graphene.Mutation):
+    transaction = graphene.Field(TransactionType)
 
     class Arguments:
-        question = graphene.String(required=True)
-        answer = graphene.String(required=True)
+        amount = graphene.Float(required=True)
+        status = graphene.String(required=True)
+        user_id = graphene.Int(required=True)
 
-    def mutate(self, info, question, answer):
-        faq = FAQ(question=question, answer=answer)
+    def mutate(self, info, amount, status, user_id):
+        transaction = Transaction(amount=amount, status=status, user_id=user_id)
         try:
-            faq.full_clean()
-            faq.save()
+            transaction.full_clean()
+            transaction.save()
         except ValidationError as e:
             raise Exception(e.message_dict)
-        return CreateFAQ(faq=faq)
+        return CreateTransaction(transaction=transaction)
 
 
-class UpdateFAQ(graphene.Mutation):
-    faq = graphene.Field(FAQType)
+class UpdateTransaction(graphene.Mutation):
+    transaction = graphene.Field(TransactionType)
 
     class Arguments:
         id = graphene.Int(required=True)
-        question = graphene.String()
-        answer = graphene.String()
+        amount = graphene.Float()
+        status = graphene.String()
 
-    def mutate(self, info, id, question=None, answer=None):
-        faq = FAQ.objects.get(pk=id)
-        if question:
-            faq.question = question
-        if answer:
-            faq.answer = answer
+    def mutate(self, info, id, amount=None, status=None):
+        transaction = Transaction.objects.get(pk=id)
+        if amount:
+            transaction.amount = amount
+        if status:
+            transaction.status = status
         try:
-            faq.full_clean()
-            faq.save()
+            transaction.full_clean()
+            transaction.save()
         except ValidationError as e:
             raise Exception(e.message_dict)
-        return UpdateFAQ(faq=faq)
+        return UpdateTransaction(transaction=transaction)
 
 
-class DeleteFAQ(graphene.Mutation):
-    faq = graphene.Field(FAQType)
+class DeleteTransaction(graphene.Mutation):
+    transaction = graphene.Field(TransactionType)
 
     class Arguments:
         id = graphene.Int(required=True)
 
     def mutate(self, info, id):
-        faq = FAQ.objects.get(pk=id)
-        faq.delete()
-        return DeleteFAQ(faq=faq)
+        transaction = Transaction.objects.get(pk=id)
+        transaction.delete()
+        return DeleteTransaction(transaction=transaction)

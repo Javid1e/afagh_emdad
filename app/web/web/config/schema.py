@@ -1,4 +1,7 @@
+# config/schema.py
 import graphene
+from graphene_django import DjangoObjectType
+from graphene_django.converter import convert_django_field
 from users.schema import Query as UsersQuery, Mutation as UsersMutation
 from profiles.schema import Query as ProfilesQuery, Mutation as ProfilesMutation
 from reqs.schema import Query as RequestsQuery, Mutation as RequestsMutation
@@ -20,6 +23,7 @@ from certificates.schema import Query as CertificatesQuery, Mutation as Certific
 from blog_posts.schema import Query as BlogPostsQuery, Mutation as BlogPostsMutation
 from faqs.schema import Query as FAQsQuery, Mutation as FAQsMutation
 from transactions.schema import Query as TransactionsQuery, Mutation as TransactionsMutation
+from .graphql.converters import convert_point_field_to_graphene_field
 
 
 class Query(

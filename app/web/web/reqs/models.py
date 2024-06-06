@@ -1,5 +1,6 @@
-from django.db import models
+# reqs/models.py
 from django.contrib.gis.db import models as geomodels
+from django.db import models
 from users.models import User
 from .validations import validate_location, validate_status
 
