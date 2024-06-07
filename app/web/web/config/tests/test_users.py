@@ -1,115 +1,82 @@
 # tests/test_users.py
 
-import pytest
-from graphene.test import Client
-from config.schema import schema
+from django.test import TestCase
+from rest_framework.test import APITestCase
+from rest_framework import status
+from django.urls import reverse
+from users.models import User
+import json
+from graphene_django.utils.testing import GraphQLTestCase
 
 
-@pytest.mark.django_db
-def test_create_user():
-    client = Client(schema)
-    mutation = '''
-        mutation {
-            createUser(username: "testuser", email: "test@example.com", phoneNumber: "09123456789", password: "password") {
-                user {
-                    id
+class UserModelTest(TestCase):
+    def setUp(self):
+        self.user = User.objects.create(
+            username='testuser',
+            email='testuser@example.com',
+            phone_number='09123456789',
+            role='client'
+        )
+
+    def test_user_creation(self):
+        self.assertEqual(self.user.username, 'testuser')
+        self.assertEqual(self.user.email, 'testuser@example.com')
+        self.assertEqual(self.user.phone_number, '09123456789')
+
+
+class UserAPITest(APITestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username='testuser', email='test@example.com', phone_number='09123456789',
+                                             password='password', role='client')
+
+    def test_create_user(self):
+        url = reverse('user-list')
+        data = {'username': 'newuser', 'email': 'newuser@example.com', 'phone_number': '09123456788',
+                'password': 'password'}
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.data['username'], 'newuser')
+
+    def test_get_user(self):
+        url = reverse('user-detail', kwargs={'pk': self.user.pk})
+        response = self.client.get(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['username'], self.user.username)
+
+
+class UserGraphQLTest(GraphQLTestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username='testuser', email='test@example.com', phone_number='09123456789',
+                                             password='password', role='client')
+
+    def test_all_users_query(self):
+        response = self.query(
+            '''
+            query {
+                allUsers {
                     username
                     email
-                    phoneNumber
                 }
             }
-        }
-    '''
-    executed = client.execute(mutation)
-    assert 'errors' not in executed
-    assert executed['data']['createUser']['user']['username'] == 'testuser'
-    assert executed['data']['createUser']['user']['email'] == 'test@example.com'
-    assert executed['data']['createUser']['user']['phoneNumber'] == '09123456789'
+            '''
+        )
+        content = json.loads(response.content)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(content['data']['allUsers'][0]['username'], self.user.username)
 
-
-@pytest.mark.django_db
-def test_get_user():
-    client = Client(schema)
-    query = '''
-        query {
-            allUsers {
-                id
-                username
-                email
-                phoneNumber
-            }
-        }
-    '''
-    executed = client.execute(query)
-    assert 'errors' not in executed
-    assert isinstance(executed['data']['allUsers'], list)
-
-
-@pytest.mark.django_db
-def test_update_user():
-    client = Client(schema)
-    create_mutation = '''
-        mutation {
-            createUser(username: "testuser", email: "test@example.com", phoneNumber: "09123456789", password: "password") {
-                user {
-                    id
-                    username
-                    email
-                    phoneNumber
+    def test_create_user_mutation(self):
+        response = self.query(
+            '''
+            mutation {
+                createUser(username: "newuser", email: "newuser@example.com", phoneNumber: "09123456788", password: "password") {
+                    user {
+                        username
+                        email
+                    }
                 }
             }
-        }
-    '''
-    executed = client.execute(create_mutation)
-    user_id = executed['data']['createUser']['user']['id']
-
-    update_mutation = f'''
-        mutation {{
-            updateUser(id: {user_id}, username: "updateduser", email: "updated@example.com", phoneNumber: "09129876543") {{
-                user {{
-                    id
-                    username
-                    email
-                    phoneNumber
-                }}
-            }}
-        }}
-    '''
-    executed = client.execute(update_mutation)
-    assert 'errors' not in executed
-    assert executed['data']['updateUser']['user']['username'] == 'updateduser'
-    assert executed['data']['updateUser']['user']['email'] == 'updated@example.com'
-    assert executed['data']['updateUser']['user']['phoneNumber'] == '09129876543'
-
-
-@pytest.mark.django_db
-def test_delete_user():
-    client = Client(schema)
-    create_mutation = '''
-        mutation {
-            createUser(username: "testuser", email: "test@example.com", phoneNumber: "09123456789", password: "password") {
-                user {
-                    id
-                    username
-                    email
-                    phoneNumber
-                }
-            }
-        }
-    '''
-    executed = client.execute(create_mutation)
-    user_id = executed['data']['createUser']['user']['id']
-
-    delete_mutation = f'''
-        mutation {{
-            deleteUser(id: {user_id}) {{
-                user {{
-                    id
-                    username
-                }}
-            }}
-        }}
-    '''
-    executed = client.execute(delete_mutation)
-    assert 'errors' not in executed
-    assert executed['data']['deleteUser']['user']['id'] == user_id
+            '''
+        )
+        content = json.loads(response.content)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(content['data']['createUser']['user']['username'], 'newuser')

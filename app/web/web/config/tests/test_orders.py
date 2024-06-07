@@ -1,108 +1,86 @@
 # tests/test_orders.py
 
-import pytest
-from graphene.test import Client
-from config.schema import schema
+from django.test import TestCase
+from rest_framework.test import APITestCase
+from rest_framework import status
+from django.urls import reverse
+from users.models import User
+from orders.models import Order
+import json
+from graphene_django.utils.testing import GraphQLTestCase
 
 
-@pytest.mark.django_db
-def test_create_order():
-    client = Client(schema)
-    mutation = '''
-        mutation {
-            createOrder(userId: 1, description: "This is a test order") {
-                order {
-                    id
-                    description
+class OrderModelTest(TestCase):
+    def setUp(self):
+        self.client = User.objects.create(username='clientuser', email='client@example.com', phone_number='09123456789',
+                                          role='client')
+        self.order = Order.objects.create(
+            user=self.client,
+            service_type='towing',
+            status='pending'
+        )
+
+    def test_order_creation(self):
+        self.assertEqual(self.order.user.username, 'clientuser')
+        self.assertEqual(self.order.service_type, 'towing')
+        self.assertEqual(self.order.status, 'pending')
+
+
+class OrderAPITest(APITestCase):
+    def setUp(self):
+        self.client_user = User.objects.create_user(username='clientuser', email='client@example.com',
+                                                    phone_number='09123456789', password='password', role='client')
+        self.client.force_authenticate(user=self.client_user)
+        self.order = Order.objects.create(user=self.client_user, service_type='towing', status='pending')
+
+    def test_create_order(self):
+        url = reverse('order-list')
+        data = {'user': self.client_user.id, 'service_type': 'towing', 'status': 'pending'}
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.data['service_type'], 'towing')
+
+    def test_get_order(self):
+        url = reverse('order-detail', kwargs={'pk': self.order.pk})
+        response = self.client.get(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['service_type'], self.order.service_type)
+
+
+class OrderGraphQLTest(GraphQLTestCase):
+    def setUp(self):
+        self.client_user = User.objects.create_user(username='clientuser', email='client@example.com',
+                                                    phone_number='09123456789', password='password', role='client')
+        self.order = Order.objects.create(user=self.client_user, service_type='towing', status='pending')
+
+    def test_all_orders_query(self):
+        response = self.query(
+            '''
+            query {
+                allOrders {
+                    serviceType
                     status
                 }
             }
-        }
-    '''
-    executed = client.execute(mutation)
-    assert 'errors' not in executed
-    assert executed['data']['createOrder']['order']['description'] == 'This is a test order'
-    assert executed['data']['createOrder']['order']['status'] == 'pending'
+            '''
+        )
+        content = json.loads(response.content)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(content['data']['allOrders'][0]['serviceType'], self.order.service_type)
 
-
-@pytest.mark.django_db
-def test_get_orders():
-    client = Client(schema)
-    query = '''
-        query {
-            allOrders {
-                id
-                description
-                status
-            }
-        }
-    '''
-    executed = client.execute(query)
-    assert 'errors' not in executed
-    assert isinstance(executed['data']['allOrders'], list)
-
-
-@pytest.mark.django_db
-def test_update_order():
-    client = Client(schema)
-    create_mutation = '''
-        mutation {
-            createOrder(userId: 1, description: "This is a test order") {
-                order {
-                    id
-                    description
-                    status
+    def test_create_order_mutation(self):
+        response = self.query(
+            '''
+            mutation {
+                createOrder(userId: ''' + str(self.client_user.id) + ''', serviceType: "towing", status: "pending") {
+                    order {
+                        serviceType
+                        status
+                    }
                 }
             }
-        }
-    '''
-    executed = client.execute(create_mutation)
-    order_id = executed['data']['createOrder']['order']['id']
-
-    update_mutation = f'''
-        mutation {{
-            updateOrder(id: {order_id}, description: "Updated order description", status: "completed") {{
-                order {{
-                    id
-                    description
-                    status
-                }}
-            }}
-        }}
-    '''
-    executed = client.execute(update_mutation)
-    assert 'errors' not in executed
-    assert executed['data']['updateOrder']['order']['description'] == 'Updated order description'
-    assert executed['data']['updateOrder']['order']['status'] == 'completed'
-
-
-@pytest.mark.django_db
-def test_delete_order():
-    client = Client(schema)
-    create_mutation = '''
-        mutation {
-            createOrder(userId: 1, description: "This is a test order") {
-                order {
-                    id
-                    description
-                    status
-                }
-            }
-        }
-    '''
-    executed = client.execute(create_mutation)
-    order_id = executed['data']['createOrder']['order']['id']
-
-    delete_mutation = f'''
-        mutation {{
-            deleteOrder(id: {order_id}) {{
-                order {{
-                    id
-                    description
-                }}
-            }}
-        }}
-    '''
-    executed = client.execute(delete_mutation)
-    assert 'errors' not in executed
-    assert executed['data']['deleteOrder']['order']['id'] == order_id
+            '''
+        )
+        content = json.loads(response.content)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(content['data']['createOrder']['order']['serviceType'], 'towing')

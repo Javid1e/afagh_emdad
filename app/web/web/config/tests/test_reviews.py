@@ -1,108 +1,86 @@
 # tests/test_reviews.py
 
-import pytest
-from graphene.test import Client
-from config.schema import schema
+from django.test import TestCase
+from rest_framework.test import APITestCase
+from rest_framework import status
+from django.urls import reverse
+from users.models import User
+from reviews.models import Review
+import json
+from graphene_django.utils.testing import GraphQLTestCase
 
 
-@pytest.mark.django_db
-def test_create_review():
-    client = Client(schema)
-    mutation = '''
-        mutation {
-            createReview(userId: 1, content: "This is a test review", rating: 5) {
-                review {
-                    id
-                    content
+class ReviewModelTest(TestCase):
+    def setUp(self):
+        self.client = User.objects.create(username='clientuser', email='client@example.com', phone_number='09123456789',
+                                          role='client')
+        self.review = Review.objects.create(
+            client=self.client,
+            rating=5,
+            comments='بسیار عالی'
+        )
+
+    def test_review_creation(self):
+        self.assertEqual(self.review.client.username, 'clientuser')
+        self.assertEqual(self.review.rating, 5)
+        self.assertEqual(self.review.comments, 'بسیار عالی')
+
+
+class ReviewAPITest(APITestCase):
+    def setUp(self):
+        self.client_user = User.objects.create_user(username='clientuser', email='client@example.com',
+                                                    phone_number='09123456789', password='password', role='client')
+        self.client.force_authenticate(user=self.client_user)
+        self.review = Review.objects.create(client=self.client_user, rating=5, comments='بسیار عالی')
+
+    def test_create_review(self):
+        url = reverse('review-list')
+        data = {'client': self.client_user.id, 'rating': 5, 'comments': 'بسیار عالی'}
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.data['comments'], 'بسیار عالی')
+
+    def test_get_review(self):
+        url = reverse('review-detail', kwargs={'pk': self.review.pk})
+        response = self.client.get(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['comments'], self.review.comments)
+
+
+class ReviewGraphQLTest(GraphQLTestCase):
+    def setUp(self):
+        self.client_user = User.objects.create_user(username='clientuser', email='client@example.com',
+                                                    phone_number='09123456789', password='password', role='client')
+        self.review = Review.objects.create(client=self.client_user, rating=5, comments='بسیار عالی')
+
+    def test_all_reviews_query(self):
+        response = self.query(
+            '''
+            query {
+                allReviews {
                     rating
+                    comments
                 }
             }
-        }
-    '''
-    executed = client.execute(mutation)
-    assert 'errors' not in executed
-    assert executed['data']['createReview']['review']['content'] == 'This is a test review'
-    assert executed['data']['createReview']['review']['rating'] == 5
+            '''
+        )
+        content = json.loads(response.content)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(content['data']['allReviews'][0]['comments'], self.review.comments)
 
-
-@pytest.mark.django_db
-def test_get_reviews():
-    client = Client(schema)
-    query = '''
-        query {
-            allReviews {
-                id
-                content
-                rating
-            }
-        }
-    '''
-    executed = client.execute(query)
-    assert 'errors' not in executed
-    assert isinstance(executed['data']['allReviews'], list)
-
-
-@pytest.mark.django_db
-def test_update_review():
-    client = Client(schema)
-    create_mutation = '''
-        mutation {
-            createReview(userId: 1, content: "This is a test review", rating: 5) {
-                review {
-                    id
-                    content
-                    rating
+    def test_create_review_mutation(self):
+        response = self.query(
+            '''
+            mutation {
+                createReview(clientId: ''' + str(self.client_user.id) + ''', rating: 5, comments: "نقد جدید") {
+                    review {
+                        rating
+                        comments
+                    }
                 }
             }
-        }
-    '''
-    executed = client.execute(create_mutation)
-    review_id = executed['data']['createReview']['review']['id']
-
-    update_mutation = f'''
-        mutation {{
-            updateReview(id: {review_id}, content: "Updated review content", rating: 4) {{
-                review {{
-                    id
-                    content
-                    rating
-                }}
-            }}
-        }}
-    '''
-    executed = client.execute(update_mutation)
-    assert 'errors' not in executed
-    assert executed['data']['updateReview']['review']['content'] == 'Updated review content'
-    assert executed['data']['updateReview']['review']['rating'] == 4
-
-
-@pytest.mark.django_db
-def test_delete_review():
-    client = Client(schema)
-    create_mutation = '''
-        mutation {
-            createReview(userId: 1, content: "This is a test review", rating: 5) {
-                review {
-                    id
-                    content
-                    rating
-                }
-            }
-        }
-    '''
-    executed = client.execute(create_mutation)
-    review_id = executed['data']['createReview']['review']['id']
-
-    delete_mutation = f'''
-        mutation {{
-            deleteReview(id: {review_id}) {{
-                review {{
-                    id
-                    content
-                }}
-            }}
-        }}
-    '''
-    executed = client.execute(delete_mutation)
-    assert 'errors' not in executed
-    assert executed['data']['deleteReview']['review']['id'] == review_id
+            '''
+        )
+        content = json.loads(response.content)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(content['data']['createReview']['review']['comments'], 'نقد جدید')

@@ -1,108 +1,91 @@
 # tests/test_support_tickets.py
 
-import pytest
-from graphene.test import Client
-from config.schema import schema
+from django.test import TestCase
+from rest_framework.test import APITestCase
+from rest_framework import status
+from django.urls import reverse
+from users.models import User
+from support_tickets.models import SupportTicket
+import json
+from graphene_django.utils.testing import GraphQLTestCase
 
 
-@pytest.mark.django_db
-def test_create_support_ticket():
-    client = Client(schema)
-    mutation = '''
-        mutation {
-            createSupportTicket(userId: 1, subject: "This is a test support ticket", message: "Help me!") {
-                supportTicket {
-                    id
+class SupportTicketModelTest(TestCase):
+    def setUp(self):
+        self.user = User.objects.create(username='testuser', email='test@example.com', phone_number='09123456789',
+                                        role='client')
+        self.support_ticket = SupportTicket.objects.create(
+            user=self.user,
+            subject='مشکل تستی',
+            description='این یک مشکل تستی است',
+            status='open'
+        )
+
+    def test_support_ticket_creation(self):
+        self.assertEqual(self.support_ticket.subject, 'مشکل تستی')
+        self.assertEqual(self.support_ticket.description, 'این یک مشکل تستی است')
+        self.assertEqual(self.support_ticket.status, 'open')
+
+
+class SupportTicketAPITest(APITestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username='testuser', email='test@example.com', phone_number='09123456789',
+                                             password='password', role='client')
+        self.client.force_authenticate(user=self.user)
+        self.support_ticket = SupportTicket.objects.create(user=self.user, subject='مشکل تستی',
+                                                           description='این یک مشکل تستی است', status='open')
+
+    def test_create_support_ticket(self):
+        url = reverse('supportticket-list')
+        data = {'user': self.user.id, 'subject': 'مشکل جدید', 'description': 'این یک مشکل جدید است', 'status': 'open'}
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.data['subject'], 'مشکل جدید')
+
+    def test_get_support_ticket(self):
+        url = reverse('supportticket-detail', kwargs={'pk': self.support_ticket.pk})
+        response = self.client.get(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['subject'], self.support_ticket.subject)
+
+
+class SupportTicketGraphQLTest(GraphQLTestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username='testuser', email='test@example.com', phone_number='09123456789',
+                                             password='password', role='client')
+        self.support_ticket = SupportTicket.objects.create(user=self.user, subject='مشکل تستی',
+                                                           description='این یک مشکل تستی است', status='open')
+
+    def test_all_support_tickets_query(self):
+        response = self.query(
+            '''
+            query {
+                allSupportTickets {
                     subject
-                    message
+                    description
+                    status
                 }
             }
-        }
-    '''
-    executed = client.execute(mutation)
-    assert 'errors' not in executed
-    assert executed['data']['createSupportTicket']['supportTicket']['subject'] == 'This is a test support ticket'
-    assert executed['data']['createSupportTicket']['supportTicket']['message'] == 'Help me!'
+            '''
+        )
+        content = json.loads(response.content)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(content['data']['allSupportTickets'][0]['subject'], self.support_ticket.subject)
 
-
-@pytest.mark.django_db
-def test_get_support_tickets():
-    client = Client(schema)
-    query = '''
-        query {
-            allSupportTickets {
-                id
-                subject
-                message
-            }
-        }
-    '''
-    executed = client.execute(query)
-    assert 'errors' not in executed
-    assert isinstance(executed['data']['allSupportTickets'], list)
-
-
-@pytest.mark.django_db
-def test_update_support_ticket():
-    client = Client(schema)
-    create_mutation = '''
-        mutation {
-            createSupportTicket(userId: 1, subject: "This is a test support ticket", message: "Help me!") {
-                supportTicket {
-                    id
-                    subject
-                    message
+    def test_create_support_ticket_mutation(self):
+        response = self.query(
+            '''
+            mutation {
+                createSupportTicket(userId: ''' + str(self.user.id) + ''', subject: "مشکل جدید", description: "این یک مشکل جدید است", status: "open") {
+                    supportTicket {
+                        subject
+                        description
+                        status
+                    }
                 }
             }
-        }
-    '''
-    executed = client.execute(create_mutation)
-    ticket_id = executed['data']['createSupportTicket']['supportTicket']['id']
-
-    update_mutation = f'''
-        mutation {{
-            updateSupportTicket(id: {ticket_id}, subject: "Updated support ticket subject", message: "Updated help message") {{
-                supportTicket {{
-                    id
-                    subject
-                    message
-                }}
-            }}
-        }}
-    '''
-    executed = client.execute(update_mutation)
-    assert 'errors' not in executed
-    assert executed['data']['updateSupportTicket']['supportTicket']['subject'] == 'Updated support ticket subject'
-    assert executed['data']['updateSupportTicket']['supportTicket']['message'] == 'Updated help message'
-
-
-@pytest.mark.django_db
-def test_delete_support_ticket():
-    client = Client(schema)
-    create_mutation = '''
-        mutation {
-            createSupportTicket(userId: 1, subject: "This is a test support ticket", message: "Help me!") {
-                supportTicket {
-                    id
-                    subject
-                    message
-                }
-            }
-        }
-    '''
-    executed = client.execute(create_mutation)
-    ticket_id = executed['data']['createSupportTicket']['supportTicket']['id']
-
-    delete_mutation = f'''
-        mutation {{
-            deleteSupportTicket(id: {ticket_id}) {{
-                supportTicket {{
-                    id
-                    subject
-                }}
-            }}
-        }}
-    '''
-    executed = client.execute(delete_mutation)
-    assert 'errors' not in executed
-    assert executed['data']['deleteSupportTicket']['supportTicket']['id'] == ticket_id
+            '''
+        )
+        content = json.loads(response.content)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(content['data']['createSupportTicket']['supportTicket']['subject'], 'مشکل جدید')
