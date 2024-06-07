@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+
+msgid "Invalid credentials"
+msgstr "اطلاعات ورود نامعتبر است"
+
+msgid "User created successfully"
+msgstr "کاربر با موفقیت ایجاد شد"
+
+msgid "User updated successfully"
+msgstr "کاربر با موفقیت به‌روزرسانی شد"
+
+msgid "User deleted successfully"
+msgstr "کاربر با موفقیت حذف شد"
+
+msgid "Profile updated"
+msgstr "پروفایل به‌روزرسانی شد"
+
+msgid "Error creating user"
+msgstr "خطا در ایجاد کاربر"
+
+msgid "Error updating user"
+msgstr "خطا در به‌روزرسانی کاربر"
+
+msgid "Error deleting user"
+msgstr "خطا در حذف کاربر"

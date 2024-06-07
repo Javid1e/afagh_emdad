@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+
+msgid "OTP created successfully"
+msgstr "کد تایید با موفقیت ایجاد شد"
+
+msgid "OTP updated successfully"
+msgstr "کد تایید با موفقیت به‌روزرسانی شد"
+
+msgid "OTP deleted successfully"
+msgstr "کد تایید با موفقیت حذف شد"
+
+msgid "OTP sent successfully"
+msgstr "کد تایید با موفقیت ارسال شد"
+
+msgid "Invalid OTP"
+msgstr "کد تایید نامعتبر است"
+
+msgid "OTP expired"
+msgstr "کد تایید منقضی شده است"
+
+msgid "Login successful"
+msgstr "ورود موفقیت‌آمیز بود"
+
+msgid "Error creating OTP"
+msgstr "خطا در ایجاد کد تایید"
+
+msgid "Error updating OTP"
+msgstr "خطا در به‌روزرسانی کد تایید"
+
+msgid "Error deleting OTP"
+msgstr "خطا در حذف کد تایید"
+
+msgid "Error sending OTP"
+msgstr "خطا در ارسال کد تایید"

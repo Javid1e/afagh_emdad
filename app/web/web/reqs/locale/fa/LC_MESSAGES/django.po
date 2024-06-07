@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+
+msgid "Request created successfully"
+msgstr "درخواست با موفقیت ایجاد شد"
+
+msgid "Request updated successfully"
+msgstr "درخواست با موفقیت به‌روزرسانی شد"
+
+msgid "Request deleted successfully"
+msgstr "درخواست با موفقیت حذف شد"
+
+msgid "Request accepted"
+msgstr "درخواست پذیرفته شد"
+
+msgid "Error creating request"
+msgstr "خطا در ایجاد درخواست"
+
+msgid "Error updating request"
+msgstr "خطا در به‌روزرسانی درخواست"
+
+msgid "Error deleting request"
+msgstr "خطا در حذف درخواست"

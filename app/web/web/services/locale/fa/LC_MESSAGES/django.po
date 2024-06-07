@@ -1,0 +1,22 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+
+msgid "Service created successfully"
+msgstr "سرویس با موفقیت ایجاد شد"
+
+msgid "Service updated successfully"
+msgstr "سرویس با موفقیت به‌روزرسانی شد"
+
+msgid "Service deleted successfully"
+msgstr "سرویس با موفقیت حذف شد"
+
+msgid "Error creating service"
+msgstr "خطا در ایجاد سرویس"
+
+msgid "Error updating service"
+msgstr "خطا در به‌روزرسانی سرویس"
+
+msgid "Error deleting service"
+msgstr "خطا در حذف سرویس"

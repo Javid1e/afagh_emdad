@@ -1,0 +1,69 @@
+[tool.poetry]
+name = "web"
+version = "0.1.0"
+description = ""
+authors = ["Abdollah Mohebbi <Abdollah.promail@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.6"
+mysqlclient = "^2.2.4"
+celery = "^5.4.0"
+redis = "^5.0.4"
+psycopg2-binary = "^2.9.9"
+djangorestframework = "^3.15.1"
+djangorestframework-simplejwt = "^5.3.1"
+django-cors-headers = "^4.3.1"
+graphene-django = "^3.2.1"
+django-environ = "^0.11.2"
+psycopg2 = "^2.9.9"
+gunicorn = "^22.0.0"
+channels = "^4.1.0"
+channels-redis = "^4.2.0"
+geopy = "^2.4.1"
+kavenegar = "^1.1.2"
+python-decouple = "^3.8"
+pytz = "^2024.1"
+setuptools = "^70.0.0"
+sqlparse = "^0.5.0"
+whitenoise = "^6.6.0"
+toml = "^0.10.2"
+environ = "^1.0"
+zarinpal = "^1.0.0"
+requests = "^2.31.0"
+django-push-notifications = "^3.1.0"
+django-graphql-extensions = "^0.1.0"
+django-redis = "^5.4.0"
+pillow = "^10.3.0"
+graphene-gis = "^0.0.8"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.2"
+flake8 = "^7.0.0"
+isort = "^5.13.2"
+pylint = "^3.2.2"
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.isort]
+profile = "black"
+
+[tool.flake8]
+max-line-length = 88
+exclude = [
+    "migrations",
+    "__pycache__",
+    ".venv",
+]
+
+[tool.poetry.scripts]
+
+format = "scripts:black_format"
+lint = "scripts:lint"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,22 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+
+msgid "Achievement created successfully"
+msgstr "دستاورد با موفقیت ایجاد شد"
+
+msgid "Achievement updated successfully"
+msgstr "دستاورد با موفقیت به‌روزرسانی شد"
+
+msgid "Achievement deleted successfully"
+msgstr "دستاورد با موفقیت حذف شد"
+
+msgid "Error creating achievement"
+msgstr "خطا در ایجاد دستاورد"
+
+msgid "Error updating achievement"
+msgstr "خطا در به‌روزرسانی دستاورد"
+
+msgid "Error deleting achievement"
+msgstr "خطا در حذف دستاورد"

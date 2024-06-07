@@ -1,0 +1,22 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+
+msgid "Complaint created successfully"
+msgstr "شکایت با موفقیت ایجاد شد"
+
+msgid "Complaint updated successfully"
+msgstr "شکایت با موفقیت به‌روزرسانی شد"
+
+msgid "Complaint deleted successfully"
+msgstr "شکایت با موفقیت حذف شد"
+
+msgid "Error creating complaint"
+msgstr "خطا در ایجاد شکایت"
+
+msgid "Error updating complaint"
+msgstr "خطا در به‌روزرسانی شکایت"
+
+msgid "Error deleting complaint"
+msgstr "خطا در حذف شکایت"

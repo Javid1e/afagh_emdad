@@ -1,0 +1,22 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+
+msgid "Live location created successfully"
+msgstr "مکان زنده با موفقیت ایجاد شد"
+
+msgid "Live location updated successfully"
+msgstr "مکان زنده با موفقیت به‌روزرسانی شد"
+
+msgid "Live location deleted successfully"
+msgstr "مکان زنده با موفقیت حذف شد"
+
+msgid "Error creating live location"
+msgstr "خطا در ایجاد مکان زنده"
+
+msgid "Error updating live location"
+msgstr "خطا در به‌روزرسانی مکان زنده"
+
+msgid "Error deleting live location"
+msgstr "خطا در حذف مکان زنده"

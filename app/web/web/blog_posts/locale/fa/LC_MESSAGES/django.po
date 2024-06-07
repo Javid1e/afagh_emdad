@@ -1,0 +1,46 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+
+msgid "Blog post created successfully"
+msgstr "پست بلاگ با موفقیت ایجاد شد"
+
+msgid "Blog post updated successfully"
+msgstr "پست بلاگ با موفقیت به‌روزرسانی شد"
+
+msgid "Blog post deleted successfully"
+msgstr "پست بلاگ با موفقیت حذف شد"
+
+msgid "Comment added successfully"
+msgstr "نظر با موفقیت اضافه شد"
+
+msgid "Comment updated successfully"
+msgstr "نظر با موفقیت به‌روزرسانی شد"
+
+msgid "Comment deleted successfully"
+msgstr "نظر با موفقیت حذف شد"
+
+msgid "Like added successfully"
+msgstr "لایک با موفقیت اضافه شد"
+
+msgid "Error creating blog post"
+msgstr "خطا در ایجاد پست بلاگ"
+
+msgid "Error updating blog post"
+msgstr "خطا در به‌روزرسانی پست بلاگ"
+
+msgid "Error deleting blog post"
+msgstr "خطا در حذف پست بلاگ"
+
+msgid "Error adding comment"
+msgstr "خطا در اضافه کردن نظر"
+
+msgid "Error updating comment"
+msgstr "خطا در به‌روزرسانی نظر"
+
+msgid "Error deleting comment"
+msgstr "خطا در حذف نظر"
+
+msgid "Error adding like"
+msgstr "خطا در اضافه کردن لایک"

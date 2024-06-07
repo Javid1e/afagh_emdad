@@ -1,0 +1,22 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+
+msgid "Order created successfully"
+msgstr "سفارش با موفقیت ایجاد شد"
+
+msgid "Order updated successfully"
+msgstr "سفارش با موفقیت به‌روزرسانی شد"
+
+msgid "Order deleted successfully"
+msgstr "سفارش با موفقیت حذف شد"
+
+msgid "Error creating order"
+msgstr "خطا در ایجاد سفارش"
+
+msgid "Error updating order"
+msgstr "خطا در به‌روزرسانی سفارش"
+
+msgid "Error deleting order"
+msgstr "خطا در حذف سفارش"

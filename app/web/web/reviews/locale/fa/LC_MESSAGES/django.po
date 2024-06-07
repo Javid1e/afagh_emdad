@@ -1,0 +1,22 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+
+msgid "Review created successfully"
+msgstr "نظر با موفقیت ایجاد شد"
+
+msgid "Review updated successfully"
+msgstr "نظر با موفقیت به‌روزرسانی شد"
+
+msgid "Review deleted successfully"
+msgstr "نظر با موفقیت حذف شد"
+
+msgid "Error creating review"
+msgstr "خطا در ایجاد نظر"
+
+msgid "Error updating review"
+msgstr "خطا در به‌روزرسانی نظر"
+
+msgid "Error deleting review"
+msgstr "خطا در حذف نظر"

@@ -1,0 +1,6 @@
+[MASTER]
+ignore=migrations,__pycache__,.venv
+max-line-length=88
+
+[MESSAGES CONTROL]
+disable=C0111,  # Missing docstring

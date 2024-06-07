@@ -1,0 +1,22 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+
+msgid "Profile created successfully"
+msgstr "پروفایل با موفقیت ایجاد شد"
+
+msgid "Profile updated successfully"
+msgstr "پروفایل با موفقیت به‌روزرسانی شد"
+
+msgid "Profile deleted successfully"
+msgstr "پروفایل با موفقیت حذف شد"
+
+msgid "Error creating profile"
+msgstr "خطا در ایجاد پروفایل"
+
+msgid "Error updating profile"
+msgstr "خطا در به‌روزرسانی پروفایل"
+
+msgid "Error deleting profile"
+msgstr "خطا در حذف پروفایل"
