@@ -8,11 +8,13 @@ from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, OT
 from .utils import generate_otp, verify_otp
 from django.contrib.auth import authenticate
 from graphql_jwt.shortcuts import get_token
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
 
     def create(self, request, *args, **kwargs):
         try:
@@ -31,6 +33,7 @@ class UserViewSet(viewsets.ModelViewSet):
             return Response({'error': _("Error updating user"), 'details': str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, *args, **kwargs):
+        self.permission_classes = [IsAdminUser]
         try:
             super().destroy(request, *args, **kwargs)
             return Response({'message': _("User deleted successfully")}, status=status.HTTP_204_NO_CONTENT)

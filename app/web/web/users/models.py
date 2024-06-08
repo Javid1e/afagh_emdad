@@ -51,5 +51,17 @@ class User(AbstractUser):
         verbose_name=_('user permissions'),
     )
 
+    class Meta:
+        permissions = (
+            ("can_view_profile", "Can view profile"),
+            ("can_edit_profile", "Can edit profile"),
+        )
+
+    def get_full_name(self):
+        return f"{self.name} {self.last_name}"
+
+    def get_short_name(self):
+        return self.name
+
     def __str__(self):
         return self.username
