@@ -22,8 +22,14 @@ msgstr "تاریخ نمی‌تواند در آینده باشد."
 msgid "Phone number must be entered in the format: \"09XXXXXXXXX\". 11 digits required."
 msgstr "شماره تلفن باید به فرمت: \"09XXXXXXXXX\" وارد شود. 11 رقم لازم است."
 
+msgid "Phone number already exists"
+msgstr "شماره تلفن قبلاً ثبت شده است"
+
 msgid "Enter a valid email address."
 msgstr "آدرس ایمیل معتبر وارد کنید."
+
+msgid "Email already exists"
+msgstr "ایمیل قبلاً ثبت شده است"
 
 msgid "Password must be at least 8 characters."
 msgstr "رمز عبور باید حداقل 8 کاراکتر باشد."
@@ -102,3 +108,9 @@ msgstr "خطا در به‌روزرسانی کاربر"
 
 msgid "Error deleting user"
 msgstr "خطا در حذف کاربر"
+
+msgid "Phone number already exists"
+msgstr "شماره تلفن قبلاً ثبت شده است"
+
+msgid "Email already exists"
+msgstr "ایمیل قبلاً ثبت شده است"
