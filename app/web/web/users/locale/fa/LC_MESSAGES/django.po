@@ -135,3 +135,39 @@ msgstr "شماره تلفن قبلاً وجود دارد"
 
 msgid "Email already exists"
 msgstr "ایمیل قبلاً وجود دارد"
+
+msgid "A new user was created: {}"
+msgstr "یک کاربر جدید ایجاد شد: {}"
+
+msgid "User profile updated: {}"
+msgstr "پروفایل کاربر به‌روزرسانی شد: {}"
+
+msgid "User deleted: {}"
+msgstr "کاربر حذف شد: {}"
+
+msgid "Welcome to Afagh Emdad"
+msgstr "به افق امداد خوش آمدید"
+
+msgid "Dear {},\n\nWelcome to Afagh Emdad! We are glad to have you."
+msgstr "عزیز {}،\n\nبه افق امداد خوش آمدید! از حضور شما خوشحالیم."
+
+msgid "Welcome to Afagh Emdad, {}!"
+msgstr "به افق امداد خوش آمدید، {}!"
+
+msgid "Profile Updated"
+msgstr "پروفایل به‌روزرسانی شد"
+
+msgid "Dear {},\n\nYour profile has been updated successfully."
+msgstr "عزیز {}،\n\nپروفایل شما با موفقیت به‌روزرسانی شد."
+
+msgid "Account Deletion"
+msgstr "حذف حساب"
+
+msgid "Dear {},\n\nYour account has been deleted as per your request."
+msgstr "عزیز {}،\n\nحساب شما طبق درخواست شما حذف شد."
+
+msgid "Your profile has been updated successfully, {}."
+msgstr "پروفایل شما با موفقیت به‌روزرسانی شد، {}."
+
+msgid "Your account has been deleted, {}."
+msgstr "حساب شما حذف شده است، {}."
