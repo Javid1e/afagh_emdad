@@ -114,3 +114,24 @@ msgstr "شماره تلفن قبلاً ثبت شده است"
 
 msgid "Email already exists"
 msgstr "ایمیل قبلاً ثبت شده است"
+
+msgid "Error creating user: "
+msgstr "خطا در ایجاد کاربر: "
+
+msgid "Invalid credentials"
+msgstr "اطلاعات ورود نامعتبر است"
+
+msgid "User created successfully"
+msgstr "کاربر با موفقیت ایجاد شد"
+
+msgid "User updated successfully"
+msgstr "کاربر با موفقیت به‌روزرسانی شد"
+
+msgid "User deleted successfully"
+msgstr "کاربر با موفقیت حذف شد"
+
+msgid "Phone number already exists"
+msgstr "شماره تلفن قبلاً وجود دارد"
+
+msgid "Email already exists"
+msgstr "ایمیل قبلاً وجود دارد"
