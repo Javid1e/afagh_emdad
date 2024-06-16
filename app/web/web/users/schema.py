@@ -1,22 +1,21 @@
 import graphene
 from graphene_django import DjangoObjectType
-from .models import User
-from .mutations import CreateUser, UpdateUser, DeleteUser
-from .types import UserType
+from users.models import User
+from users.types import UserType
+from users.mutations import CreateUser, UpdateUser, DeleteUser, LoginUser, LogoutUser
+from users.queries import Query as UserQuery
 
 
-class Query(graphene.ObjectType):
-    all_users = graphene.List(UserType)
-    user = graphene.Field(UserType, id=graphene.Int())
-
-    def resolve_all_users(self, info, **kwargs):
-        return User.objects.all()
-
-    def resolve_user(self, info, id):
-        return User.objects.get(pk=id)
+class Query(UserQuery, graphene.ObjectType):
+    pass
 
 
 class Mutation(graphene.ObjectType):
     create_user = CreateUser.Field()
     update_user = UpdateUser.Field()
     delete_user = DeleteUser.Field()
+    login_user = LoginUser.Field()
+    logout_user = LogoutUser.Field()
+
+
+schema = graphene.Schema(query=Query, mutation=Mutation)

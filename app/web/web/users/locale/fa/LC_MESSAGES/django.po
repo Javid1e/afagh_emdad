@@ -1,7 +1,89 @@
+# users/locale/fa/LC_MESSAGES/django.po
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: fa\n"
+
+msgid "Name must be at least 3 characters long."
+msgstr "نام باید حداقل 3 کاراکتر باشد."
+
+msgid "Name must be at most 30 characters long."
+msgstr "نام باید حداکثر 30 کاراکتر باشد."
+
+msgid "Last name must be at least 3 characters long."
+msgstr "نام خانوادگی باید حداقل 3 کاراکتر باشد."
+
+msgid "Last name must be at most 30 characters long."
+msgstr "نام خانوادگی باید حداکثر 30 کاراکتر باشد."
+
+msgid "Date cannot be in the future."
+msgstr "تاریخ نمی‌تواند در آینده باشد."
+
+msgid "Phone number must be entered in the format: \"09XXXXXXXXX\". 11 digits required."
+msgstr "شماره تلفن باید به فرمت: \"09XXXXXXXXX\" وارد شود. 11 رقم لازم است."
+
+msgid "Phone number already exists"
+msgstr "شماره تلفن قبلاً ثبت شده است"
+
+msgid "Enter a valid email address."
+msgstr "آدرس ایمیل معتبر وارد کنید."
+
+msgid "Email already exists"
+msgstr "ایمیل قبلاً ثبت شده است"
+
+msgid "Password must be at least 8 characters."
+msgstr "رمز عبور باید حداقل 8 کاراکتر باشد."
+
+msgid "Password must contain at least one uppercase letter."
+msgstr "رمز عبور باید حداقل یک حرف بزرگ داشته باشد."
+
+msgid "Password must contain at least one digit."
+msgstr "رمز عبور باید حداقل یک رقم داشته باشد."
+
+msgid "Password must contain at least one special character."
+msgstr "رمز عبور باید حداقل یک کاراکتر ویژه داشته باشد."
+
+msgid "Username must be at least 3 characters long."
+msgstr "نام کاربری باید حداقل 3 کاراکتر باشد."
+
+msgid "Username must be at most 30 characters long."
+msgstr "نام کاربری باید حداکثر 30 کاراکتر باشد."
+
+msgid "Enter a valid URL."
+msgstr "آدرس URL معتبر وارد کنید."
+
+msgid "Name"
+msgstr "نام"
+
+msgid "Last Name"
+msgstr "نام خانوادگی"
+
+msgid "Phone Number"
+msgstr "شماره تلفن"
+
+msgid "Email"
+msgstr "ایمیل"
+
+msgid "Role"
+msgstr "نقش"
+
+msgid "Address"
+msgstr "آدرس"
+
+msgid "Profile Photo"
+msgstr "عکس پروفایل"
+
+msgid "Balance"
+msgstr "موجودی"
+
+msgid "Date of Birth"
+msgstr "تاریخ تولد"
+
+msgid "Gender"
+msgstr "جنسیت"
+
+msgid "Avatar"
+msgstr "آواتار"
 
 msgid "Invalid credentials"
 msgstr "اطلاعات ورود نامعتبر است"
@@ -26,3 +108,66 @@ msgstr "خطا در به‌روزرسانی کاربر"
 
 msgid "Error deleting user"
 msgstr "خطا در حذف کاربر"
+
+msgid "Phone number already exists"
+msgstr "شماره تلفن قبلاً ثبت شده است"
+
+msgid "Email already exists"
+msgstr "ایمیل قبلاً ثبت شده است"
+
+msgid "Error creating user: "
+msgstr "خطا در ایجاد کاربر: "
+
+msgid "Invalid credentials"
+msgstr "اطلاعات ورود نامعتبر است"
+
+msgid "User created successfully"
+msgstr "کاربر با موفقیت ایجاد شد"
+
+msgid "User updated successfully"
+msgstr "کاربر با موفقیت به‌روزرسانی شد"
+
+msgid "User deleted successfully"
+msgstr "کاربر با موفقیت حذف شد"
+
+msgid "Phone number already exists"
+msgstr "شماره تلفن قبلاً وجود دارد"
+
+msgid "Email already exists"
+msgstr "ایمیل قبلاً وجود دارد"
+
+msgid "A new user was created: {}"
+msgstr "یک کاربر جدید ایجاد شد: {}"
+
+msgid "User profile updated: {}"
+msgstr "پروفایل کاربر به‌روزرسانی شد: {}"
+
+msgid "User deleted: {}"
+msgstr "کاربر حذف شد: {}"
+
+msgid "Welcome to Afagh Emdad"
+msgstr "به افق امداد خوش آمدید"
+
+msgid "Dear {},\n\nWelcome to Afagh Emdad! We are glad to have you."
+msgstr "عزیز {}،\n\nبه افق امداد خوش آمدید! از حضور شما خوشحالیم."
+
+msgid "Welcome to Afagh Emdad, {}!"
+msgstr "به افق امداد خوش آمدید، {}!"
+
+msgid "Profile Updated"
+msgstr "پروفایل به‌روزرسانی شد"
+
+msgid "Dear {},\n\nYour profile has been updated successfully."
+msgstr "عزیز {}،\n\nپروفایل شما با موفقیت به‌روزرسانی شد."
+
+msgid "Account Deletion"
+msgstr "حذف حساب"
+
+msgid "Dear {},\n\nYour account has been deleted as per your request."
+msgstr "عزیز {}،\n\nحساب شما طبق درخواست شما حذف شد."
+
+msgid "Your profile has been updated successfully, {}."
+msgstr "پروفایل شما با موفقیت به‌روزرسانی شد، {}."
+
+msgid "Your account has been deleted, {}."
+msgstr "حساب شما حذف شده است، {}."
